@@ -29,12 +29,15 @@ then
     printf "\n<b>Switching to branch \"$BRANCH\" of gaiatest ...</b>\n\n" | tee -a $LOGFILE
 	cd $HOME/gaia
 	git checkout $BRANCH  2> >( tee -a $LOGFILE)
+	
 
 	# Temporary hack...
 	$OWD_TEST_TOOLKIT_BIN/tmp_hack.sh
 else
     printf "(refreshing 'gaia' - this will take just a minute or so ...)\n\n" | tee -a $LOGFILE
     cd $HOME/gaia
+    sudo git checkout $BRANCH  2> >( tee -a $LOGFILE)
+    sudo git pull
     git fetch origin >> $LOGFILE 2>&1
 fi
 
