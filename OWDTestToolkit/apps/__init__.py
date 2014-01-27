@@ -15,3 +15,4 @@ from Music import *
 from Settings import *
 from Video import *
 from Dialer import *
+from Dm import *
